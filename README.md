@@ -23,7 +23,7 @@ $genome=species
 $genomeDir=genomeDir
 
 tophat -o $s.index --solexa-quals -p 20 -g 2 -G $genomedir/$genome.gtf --no-discordant --no-mixed --transcriptome-index=$genomedir/Tophat2/$genome $genomedir/$genome $s.1.fastq.clipper.index $s.2.fastq.clipper.index 
-### calculate single nucleotide depth
+### calculate single nucleotide depth and call significant sites
 perl $bin/P1.3EndPos.smallRNA.pl -PE 0 $s.bam.uniq.sam $s.2.uniq.bed
 cat $s.2.uniq.bed|sort -k1,1 -k2,2n -k4,4 -k6,6 > $s.2.uniq.nodup.bed
 perl $bin/DZ.nor.pl $s.uniq.nodup.bed.p.dz $a 1000000

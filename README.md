@@ -26,6 +26,7 @@ tophat -o $s.index --solexa-quals -p 20 -g 2 -G $genomedir/$genome.gtf --no-disc
 ### calculate single nucleotide depth and call significant sites
 perl $bin/P1.3EndPos.smallRNA.pl -PE 0 $s.bam.uniq.sam $s.2.uniq.bed
 cat $s.2.uniq.bed|sort -k1,1 -k2,2n -k4,4 -k6,6 > $s.2.uniq.nodup.bed
+a=$(cat $s.2.uniq.bed|wc -l)
 perl $bin/DZ.nor.pl $s.uniq.nodup.bed.p.dz $a 1000000
 perl $bin/DZ.nor.pl $s.uniq.nodup.bed.n.dz $a 1000000
 perl $bin/Genome.exp.pl -o 1 $genomedir/$genome.genome $s.uniq.nodup.bed.p.dz 1 1 60000 $s.uniq.nodup.genome.p.exp

@@ -2,7 +2,7 @@ BEGIN {
 	push @INC, "/home/luzhk/Documents/bin/";
 }
 use strict;
-###use luzhk;
+use luzhk;
 
 # ljma@uchicago.edu
 # malijia@westlake.edu.cn

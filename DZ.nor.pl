@@ -2,7 +2,7 @@
 BEGIN {
 	push @INC,"/home/luzhk/Documents/bin/";
 }
-use luzhk;
+###use luzhk;
 use strict;
 use Getopt::Long;
 my %opts;
